@@ -1,0 +1,22 @@
+<h1><%= @post.title %></h1>
+
+<%= @post.content %>
+<%= @post.url %>
+
+<%= @post.author.username %>
+<br>
+Posted on: <br>
+<% @post.subs.each do |sub| %>
+    <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+    <br>
+<% end%>
+<br>
+<br>
+<br>
+<a href="<%= new_post_comment_url(@post) %>">Make a new Comment</a>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+    <a href="<%= comment_url(comment) %>"><%= comment.show_all_children %></a>
+    <br>
+<% end %>
